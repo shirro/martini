@@ -103,7 +103,7 @@ type ClassicMartini struct {
 func Classic() *ClassicMartini {
 	r := NewRouter()
 	m := New()
-	m.MapTo(r.(*router), (*Routes)(nil))
+	m.MapTo(routes{r.(*router)}, (*Routes)(nil))
 	m.Use(Logger())
 	m.Use(Recovery())
 	m.Use(Static("public"))
