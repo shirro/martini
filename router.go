@@ -263,7 +263,6 @@ func (r routes) MethodsFor(path string) []string {
 	for _, route := range r.router.routes {
 		matches := route.regex.FindStringSubmatch(path)
 		if len(matches) > 0 && matches[0] == path && !hasMethod(methods, route.method) {
-			fmt.Println("found")
 			methods = append(methods, route.method)
 		}
 	}
